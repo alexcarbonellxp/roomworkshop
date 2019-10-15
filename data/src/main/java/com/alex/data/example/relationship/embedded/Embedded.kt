@@ -8,7 +8,6 @@ import androidx.room.PrimaryKey
 /**
  * Embedded.
  */
-
 @Entity
 data class ArtistEmbeddedEntity(
     @PrimaryKey(autoGenerate = true)
@@ -19,8 +18,6 @@ data class ArtistEmbeddedEntity(
 )
 
 class Album(
-    @ColumnInfo(name = "albumId")
-    var id: Int,
     @ColumnInfo(name = "albumName")
     var name: String
 )

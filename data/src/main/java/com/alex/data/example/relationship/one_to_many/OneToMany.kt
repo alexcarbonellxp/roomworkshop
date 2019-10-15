@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
  * Foreign key (ONE-TO-MANY).
  */
 @Entity
-class ArtistEntity(
+class ArtistOneToManyEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var name: String
@@ -16,10 +16,15 @@ class ArtistEntity(
 
 @Entity(
     foreignKeys = [
-        ForeignKey(entity = ArtistEntity::class, parentColumns = ["id"], childColumns = ["artistId"], onDelete = ForeignKey.CASCADE)
+        ForeignKey(
+            entity = ArtistOneToManyEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["artistId"],
+            onDelete = ForeignKey.CASCADE
+        )
     ]
 )
-class Album(
+class AlbumOneToManyEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var name: String,

@@ -8,14 +8,14 @@ import androidx.room.PrimaryKey
  * Foreign key (MANY-TO-MANY).
  */
 @Entity
-class ArtistEntity(
+class ArtistManyToManyEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var name: String
 )
 
 @Entity
-class AlbumEntity(
+class AlbumManyToManyEntity(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var name: String
@@ -26,11 +26,11 @@ class AlbumEntity(
     tableName = "artist_album_join",
     primaryKeys = ["artistId", "albumId"],
     foreignKeys = [
-        ForeignKey(entity = ArtistEntity::class, parentColumns = ["id"], childColumns = ["artistId"]),
-        ForeignKey(entity = AlbumEntity::class, parentColumns = ["id"], childColumns = ["albumId"])
+        ForeignKey(entity = ArtistManyToManyEntity::class, parentColumns = ["id"], childColumns = ["artistId"]),
+        ForeignKey(entity = AlbumManyToManyEntity::class, parentColumns = ["id"], childColumns = ["albumId"])
     ]
 )
-class ArtistAlbumJoin(
+class ArtistAlbumEntity(
     var artistId: Int,
     var albumId: Int
 )

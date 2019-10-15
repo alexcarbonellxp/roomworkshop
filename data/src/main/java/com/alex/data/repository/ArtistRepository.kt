@@ -14,5 +14,6 @@ class ArtistRepository(private val dataSource: DatabaseDataSource) : ArtistRepos
 
     override suspend fun saveArtist(artistDomain: ArtistDomain) {
         dataSource.saveArtist(ArtistEntity(name = artistDomain.name, genre = Genre.POP))
+//        dataSource.saveArtist(ArtistEntity(name = artistDomain.name, genre = Genre.POP, lastName = "Example"))
     }
 }

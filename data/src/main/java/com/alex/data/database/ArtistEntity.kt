@@ -11,3 +11,12 @@ data class ArtistEntity(
     var name: String,
     var genre: Genre
 )
+
+//@Entity
+//data class ArtistEntity(
+//    @PrimaryKey(autoGenerate = true)
+//    val id: Int = 0,
+//    var name: String,
+//    var genre: Genre,
+//    var lastName: String
+//)

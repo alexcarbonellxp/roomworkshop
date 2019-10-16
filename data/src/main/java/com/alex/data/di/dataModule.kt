@@ -12,11 +12,8 @@ import org.koin.dsl.module.module
 val dataModule = module {
 
     single {
-        Room.databaseBuilder(
-            androidContext(),
-            Database::class.java,
-            Database.DATABASE_NAME
-        ).addMigrations(MIGRATION_1_2)
+        Room.databaseBuilder(androidContext(), Database::class.java, Database.DATABASE_NAME)
+            .addMigrations(MIGRATION_1_2)
             .build()
     }
     single { get<Database>().artistDao }
